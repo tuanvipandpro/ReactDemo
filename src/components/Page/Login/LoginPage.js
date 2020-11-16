@@ -8,7 +8,7 @@ import './../../../assets/css/page/LoginPage.scss'
 const LoginPage = () => {
     return (
         <div className="page-login">
-            <LoginForm/>
+            <LoginForm />
         </div>
     );
 }

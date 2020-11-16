@@ -1,16 +1,33 @@
 import React from 'react';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
+import routes from './routes'
 
 // Ant Design
 import 'antd/dist/antd.css';
 
-// Components
-import LoginPage from './components/Page/Login/LoginPage'
+// Font Awesome
+import '@fortawesome/fontawesome-free/css/all.css'
+import '@fortawesome/fontawesome-free/js/all.js'
 
 function App() {
+  // Routes
+  const routeManagement = () => {
+    return routes.map((route, index) => 
+        <Route 
+          key={index} 
+          path={route.path} 
+          component={route.component} 
+          exact={route.exact}
+        />
+      )
+  }
+
   return (
-    <div className="App">
-      <LoginPage/>
-    </div>
+    <Router>
+        <Switch>
+            {routeManagement()}
+        </Switch>   
+    </Router>       
   );
 }
 
